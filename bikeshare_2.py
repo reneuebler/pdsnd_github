@@ -166,6 +166,7 @@ def user_stats(df):
     start_time = time.time()
 
     # TO DO: Display counts of user types
+    # ADDED an if clause because not all cities have data available for this querie
     if 'User Type' in df:
         users = df['User Type'].unique()
         print('\nThese are the user types: ', users)
@@ -173,6 +174,7 @@ def user_stats(df):
         print("\n I'm sorry, but there is no Data for this city showing user type information...")
 
     # TO DO: Display counts of gender
+    # ADDED an if clause because not all cities have data available for this querie
     if 'Gender' in df:
         male = df['Gender'].str.count('Male').sum()
         print('\nTotal count of male people: ', male)
@@ -184,6 +186,7 @@ def user_stats(df):
         print("\n I'm sorry, but there is no Data for this city showing gender information...")
 
     # TO DO: Display earliest, most recent, and most common year of birth
+    # ADDED an if clause because not all cities have data available for this querie
     if 'Birth Year' in df:
         earliest_year = df['Birth Year'].min()
         print('\nThe earliest year of birth: ', earliest_year)
