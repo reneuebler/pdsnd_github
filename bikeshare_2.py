@@ -20,8 +20,9 @@ def get_filters():
     while True:
         try:
             city_choice = input("Please tell me the city you want to explore (chicago, new york city, washington): ")
-            if city_choice.lower() in CITY_DATA:
-                city = city_choice.lower()
+            city_choice = city_choice.lower()
+            if city_choice in CITY_DATA:
+                city = city_choice
             else:
                 print("invalid input, please try again...")
                 continue
@@ -29,16 +30,18 @@ def get_filters():
 
     # TO DO: get user input for month (all, january, february, ... , june)
             month_choice = input("Please enter the desired month (all, january, february, ... , june): ")
-            if month_choice.lower() in ('all', 'january', 'february', 'march', 'april', 'may', 'june'):
-                month = month_choice.lower()
+            month_choice = month_choice.lower()
+            if month_choice in ('all', 'january', 'february', 'march', 'april', 'may', 'june'):
+                month = month_choice
             else:
                 print("invalid input, please try again...")
                 continue
 
     # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
             day_choice = input("Please enter the desired day of the week (all, monday, tuesday, ... sunday): ")
-            if day_choice.lower() in ('all', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'):
-                day = day_choice.lower()
+            day_choice = day_choice.lower()
+            if day_choice in ('all', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'):
+                day = day_choice
                 break
             else:
                 print("invalid input, please try again...")
@@ -132,8 +135,7 @@ def station_stats(df):
     # TO DO: display most frequent combination of start station and end station trip
     common_start_end = df.groupby(['Start Station', 'End Station']).size().sort_values(ascending=False).index[0]
     common_start_end_count = df.groupby(['Start Station', 'End Station']).size().sort_values(ascending=False)[0]
-    result = '\nThe most common combination of start station and end station is: {} with {} combinations'.format(common_start_end, common_start_end_count)
-    print(result)
+    print('\nThe most common combination of start station and end station is: {} with {} combinations'.format(common_start_end, common_start_end_count))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
