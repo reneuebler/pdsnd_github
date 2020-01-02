@@ -29,16 +29,18 @@ def get_filters():
 
     # TO DO: get user input for month (all, january, february, ... , june)
             month_choice = input("Please enter the desired month (all, january, february, ... , june): ")
-            if month_choice.lower() in ('all', 'january', 'february', 'march', 'april', 'may', 'june'):
-                month = month_choice.lower()
+            month_choice = month_choice.lower()
+            if month_choice in ('all', 'january', 'february', 'march', 'april', 'may', 'june'):
+                month = month_choice
             else:
                 print("invalid input, please try again...")
                 continue
 
     # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
             day_choice = input("Please enter the desired day of the week (all, monday, tuesday, ... sunday): ")
-            if day_choice.lower() in ('all', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'):
-                day = day_choice.lower()
+            day_choice = day_choice.lower()
+            if day_choice in ('all', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'):
+                day = day_choice
                 break
             else:
                 print("invalid input, please try again...")
